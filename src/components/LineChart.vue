@@ -1,5 +1,5 @@
 <template>
-  <VChart ref="chartRef" class="chart" :option="option"/>
+  <VChart ref="chartRef" class="chart" :option="option" :autoresize="true"/>
 </template>
 
 <script setup>
@@ -26,9 +26,6 @@ const d = defineProps({
   },
   min: {
     type: Number
-  },
-  subtitle: {
-    type: Array
   },
   interval:{
     type: Number
@@ -61,7 +58,6 @@ if (d.data && d.data[0] !== undefined && typeof d.data[0] === 'object' && Array.
 const option = {
   title: {
     text: d.title ? d.title : 'Referer of a Website',
-    subtext: d.subtitle ? d.subtitle : 'Fake Data',
     left: 'center'
   },
   tooltip: {
@@ -88,8 +84,8 @@ const option = {
 
 <style scoped>
 .chart {
-  padding: 0.2%;
-  width: 48%;
+  padding: 0;
+  width: 50%;
   height: 50%;
 }
 </style>
